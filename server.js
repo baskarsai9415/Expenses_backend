@@ -5,11 +5,11 @@ const colors = require('colors');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
-console.log(data)
 dotenv.config({path: './config/config.env'});
 
 // import transaction routes
 const transactions = require('./routes/transaction');
+const { get_home, post_category, post_home } = require('./utils');
 // const Connection = require('mysql2/typings/mysql/lib/Connection');
 
 const app=express();
@@ -22,11 +22,11 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
-app.get('/',(req,res)=>{
-    res.send(data)
-})
+app.get('/',get_home)
+app.post('/',post_home)
+app.post('/add_category',post_category)
 // create employee routes
-app.use('/api/v1/transactions',transactions);
+// app.use('/api/v1/transactions',transactions);
 
 // server port setup
 const PORT = process.env.PORT || 5000;

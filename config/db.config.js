@@ -16,11 +16,11 @@ db.connect((err) =>{
     console.log('Mysql Connected...')
 });
 
-const tableName = 'categories'
-db.query(`SELECT * FROM ${tableName} RIGHT JOIN amount ON categories.id=amount.category_id;`,(a,b) =>{
-    if (a) throw a
-     console.log(b)
- })
+// const tableName = 'categories'
+// db.query(`SELECT * FROM ${tableName} RIGHT JOIN amount ON categories.id=amount.category_id;`,(a,b) =>{
+//     if (a) throw a
+//      console.log(b)
+//  })
 
 
 module.exports = db;
